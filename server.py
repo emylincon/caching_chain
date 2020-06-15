@@ -11,7 +11,7 @@ class HomePage(Resource):
     @staticmethod
     def get():
         #return render_template('index.html')
-        return 'Welcome to Site!'
+        return "Welcome to Site!"
 
 
 class AddNode(Resource):
