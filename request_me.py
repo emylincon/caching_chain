@@ -6,7 +6,9 @@ url = 'http://127.0.0.1:5000/'
 
 def get_data(endpoint=''):
     response = requests.get(url+endpoint)
-    print(response.text)
+    #print(response.text)
+    data = json.loads(response.content)
+    print(data)
 
 
 def post_data(data, endpoint=''):
@@ -18,5 +20,6 @@ def post_data(data, endpoint=''):
 
 # get_data(endpoint='')
 # get_data(endpoint='add/2,333')
-get_data(endpoint='read/6')
+# get_data(endpoint='read/6')
+
 
