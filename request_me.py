@@ -19,7 +19,8 @@ def post_data(data, endpoint=''):
 
 
 # get_data(endpoint='')
-# get_data(endpoint='add/2,333')
-# get_data(endpoint='read/6')
+get_data(endpoint='add/2,333,google.com')
+get_data(endpoint='read/hash/2')
+get_data(endpoint='read/url/333')
 
 
