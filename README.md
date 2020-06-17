@@ -1,10 +1,21 @@
 # caching hash retrieval server
-* to run server
+* This application will server as a DNS for content based caching Network
+* Allows addition and reading of queries
+
+# Setup
+* run setup.py
+```bash
+sudo bash setup.sh
+```
+* https://www.youtube.com/watch?v=kDRRtPO0YPA
+
+
+## To Run Server
 ```bash
 gunicorn server:app
 ```
 
-# How To
+# Usage
 * add a new node | format -> add/location_id,content_id,url
 ```bash
 curl http://127.0.0.1:5000/add/2,333,google.com
@@ -18,5 +29,3 @@ curl http://127.0.0.1:5000/read/hash/2
 curl http://127.0.0.1:5000/read/url/333
 ```
 
-# Setup
-* https://www.youtube.com/watch?v=kDRRtPO0YPA
