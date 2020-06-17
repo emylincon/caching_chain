@@ -16,10 +16,11 @@ class HomePage(Resource):
 
 class AddNode(Resource):
     @staticmethod
-    def get(text):     # address_hash, content_hash
+    def get(text):     # address_hash, content_hash, url
         a = text.strip().split(',')
         dict_a = {a[0].strip(): a[1].strip()}
-        data_con.add_node(dict_a)
+        dict_b = {a[1].strip(): a[2].strip()}
+        data_con.add_node(dict_a, dict_b)
         return {'result': 'added'}
 
 
@@ -31,9 +32,18 @@ class ReadNode(Resource):
         return response
 
 
+class ReadReverse(Resource):
+    @staticmethod
+    def get(text):   # content_hash
+        address = text.strip()
+        response = data_con.read_reserve(address)
+        return response
+
+
 api.add_resource(HomePage, '/')
 api.add_resource(AddNode, '/add/<text>')
-api.add_resource(ReadNode, '/read/<text>')
+api.add_resource(ReadNode, '/read/hash/<text>')
+api.add_resource(ReadReverse, '/read/url/<text>')
 
 
 # if __name__ == '__main__':
