@@ -15,8 +15,8 @@ def user(where):
     if where in files:
             return render_template(where)
     else:
-        return render_template('error.html')
+        return render_template('error.html'), 400
 
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
