@@ -13,3 +13,4 @@ rm /etc/nginx/sites-enabled/default
 mv flask_settings /etc/nginx/sites-available/
 ln -s /etc/nginx/sites-available/flask_settings /etc/nginx/sites-enabled/flask_settings
 /etc/init.d/nginx restart
+echo 'done!'
