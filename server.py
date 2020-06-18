@@ -16,10 +16,10 @@ class HomePage(Resource):
 
 class AddNode(Resource):
     @staticmethod
-    def get(text):     # address_hash, content_hash, url
-        a = text.strip().split(',')
-        dict_a = {a[0].strip(): a[1].strip()}
-        dict_b = {a[1].strip(): a[2].strip()}
+    def post():
+        sent_data = request.get_json()    # [address_hash, content_hash, url]
+        dict_a = {sent_data[0]: sent_data[1]}
+        dict_b = {sent_data[1]: sent_data[2]}
         data_con.add_node(dict_a, dict_b)
         return {'result': 'added'}
 
@@ -41,7 +41,7 @@ class ReadReverse(Resource):
 
 
 api.add_resource(HomePage, '/')
-api.add_resource(AddNode, '/add/<text>')
+api.add_resource(AddNode, '/add/')
 api.add_resource(ReadNode, '/read/hash/<text>')
 api.add_resource(ReadReverse, '/read/url/<text>')
 
