@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from flask_restful import Resource, Api
 from content_hash import Content
+import json
 
 app = Flask(__name__)
 api = Api(app)
@@ -17,7 +18,7 @@ class HomePage(Resource):
 class AddNode(Resource):
     @staticmethod
     def post():
-        sent_data = request.get_json()    # [address_hash, content_hash, url]
+        sent_data = json.loads(request.get_json())    # [address_hash, content_hash, url]
         dict_a = {sent_data[0]: sent_data[1]}
         dict_b = {sent_data[1]: sent_data[2]}
         data_con.add_node(dict_a, dict_b)
