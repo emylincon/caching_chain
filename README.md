@@ -10,9 +10,16 @@ sudo bash setup.sh
 * https://www.youtube.com/watch?v=kDRRtPO0YPA
 
 
-## To Run Server
+## To Run content hash Server
 ```bash
 gunicorn server:app
+```
+
+## To Run web server
+```bash
+cd webserver
+gunicorn web:app
+
 ```
 
 # Usage
